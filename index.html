@@ -3,14 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mariscos El Reformeño | Los mejores de Culiacán</title>
+    <title>Mariscos El Reformeño | Sabor Carnavalesco en Culiacán</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #FF5A5F; /* Rojo Coral */
+            --primary: #00C853; /* Verde Vibrante Carnavalesco */
+            --secondary: #FFD600; /* Amarillo Brillante */
             --accent: #25D366;  /* Verde WhatsApp */
-            --text: #2d3436;
-            --light: #f5f5f5;
+            --text: #1a1a1a;    /* Texto casi negro para contraste */
+            --light: #F5F5F5;   /* Gris muy claro */
             --white: #ffffff;
         }
 
@@ -24,32 +25,32 @@
             background-color: var(--white);
         }
 
-        /* Navegación */
+        /* Navegación (Fondo Verde) */
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 5%;
+            padding: 15px 5%;
             position: fixed;
             width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
+            background-color: var(--primary); /* Verde */
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
 
         .logo {
             font-weight: 700;
             font-size: 1.5rem;
-            color: var(--primary);
+            color: var(--white); /* Logo en Blanco */
             text-transform: uppercase;
             letter-spacing: 1px;
         }
 
-        /* Hero Section */
+        /* Hero Section (Imagen con filtro Verde/Amarillo) */
         .hero {
             height: 90vh;
-            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+            /* Filtro de gradiente carnavalesco sobre la imagen */
+            background-image: linear-gradient(135deg, rgba(0, 200, 83, 0.6), rgba(255, 214, 0, 0.4)), 
                               url('https://images.unsplash.com/photo-1615141982883-c7ad0e69fd62?auto=format&fit=crop&q=80&w=1920');
             background-size: cover;
             background-position: center;
@@ -59,75 +60,108 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            color: white;
             padding: 0 20px;
             padding-top: 80px;
+            color: var(--white);
         }
 
         .hero h1 {
-            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            font-size: clamp(2.8rem, 9vw, 5rem);
             line-height: 1.1;
             margin-bottom: 20px;
-            color: var(--primary);
+            color: var(--white);
+            text-shadow: 2px 2px 15px rgba(0,0,0,0.6);
         }
 
         .hero p {
-            font-size: 1.2rem;
-            max-width: 650px;
+            font-size: 1.3rem;
+            max-width: 700px;
             margin-bottom: 40px;
-            font-weight: 300;
+            font-weight: 400;
+            text-shadow: 1px 1px 8px rgba(0,0,0,0.5);
         }
 
-        /* Botones */
+        /* Botones (Amarillo) */
         .btn {
             display: inline-block;
-            padding: 16px 35px;
-            background-color: var(--accent);
-            color: white;
+            padding: 18px 40px;
+            background-color: var(--secondary); /* Amarillo */
+            color: var(--text); /* Texto oscuro */
             text-decoration: none;
             border-radius: 50px;
             font-weight: 700;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
             transition: 0.3s;
+            box-shadow: 0 4px 10px rgba(255, 214, 0, 0.3);
         }
 
         .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 10px 25px rgba(255, 214, 0, 0.5);
         }
 
         /* Secciones */
-        section { padding: 80px 5%; }
+        section { padding: 100px 5%; }
 
         h2 {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             text-align: center;
-            margin-bottom: 40px;
-            color: var(--primary);
+            margin-bottom: 50px;
+            color: var(--primary); /* Verde */
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: var(--secondary); /* Amarillo */
+            margin: 10px auto 0;
+            border-radius: 2px;
         }
 
-        /* Grid Productos */
+        /* Grid Productos (Fondo Amarillo Suave) */
+        #menu { background-color: #FFFDE7; /* Amarillo muy suave */ }
+
         .productos-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
         }
 
         .card {
             background: var(--white);
-            padding: 30px;
-            border-radius: 15px;
-            border: 1px solid #eee;
+            padding: 40px;
+            border-radius: 20px;
+            border: 2px solid transparent;
             text-align: center;
             transition: 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
         }
 
-        .card:hover { border-color: var(--primary); background: #FFF5F5; }
+        .card:hover { 
+            border-color: var(--secondary); /* Borde Amarillo */
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(255, 214, 0, 0.15);
+        }
+        
+        .card h3 {
+            color: var(--primary); /* Verde */
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
 
         /* Galería */
         .galeria-container {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 15px;
+            gap: 20px;
         }
 
         @media (min-width: 768px) {
@@ -135,50 +169,72 @@
         }
 
         .foto-item {
-            height: 300px;
+            height: 350px;
             overflow: hidden;
-            border-radius: 15px;
+            border-radius: 20px;
             position: relative;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
 
         .foto-item img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: 0.5s;
+            transition: 0.7s;
         }
 
-        .foto-item:hover img { transform: scale(1.1); }
+        .foto-item:hover img { transform: scale(1.15); }
 
         .foto-info {
             position: absolute;
             bottom: 0; left: 0; right: 0;
-            background: linear-gradient(transparent, rgba(0,0,0,0.7));
+            background: linear-gradient(transparent, rgba(0,200,83,0.8)); /* Gradiente Verde */
             color: white;
-            padding: 20px;
+            padding: 25px;
             font-weight: 600;
+            font-size: 1.2rem;
         }
 
         /* Contacto */
-        .contacto { text-align: center; background: var(--light); }
+        .contacto { 
+            text-align: center; 
+            background: var(--light); 
+        }
+        
+        .contacto p { font-size: 1.1rem; margin-bottom: 15px; }
         
         .whatsapp-link {
             font-size: 1.4rem;
-            color: var(--accent);
+            color: var(--accent); /* Verde WhatsApp */
             text-decoration: none;
             font-weight: bold;
             display: inline-block;
-            margin-top: 20px;
-            border: 2px solid var(--accent);
-            padding: 10px 25px;
+            margin-top: 30px;
+            border: 3px solid var(--accent);
+            padding: 15px 35px;
             border-radius: 50px;
+            transition: 0.3s;
+        }
+
+        .whatsapp-link:hover {
+            background-color: var(--accent);
+            color: var(--white);
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
         }
 
         footer {
-            padding: 40px;
+            padding: 50px;
             text-align: center;
-            font-size: 0.9rem;
-            color: #777;
+            font-size: 1rem;
+            color: var(--white);
+            background-color: var(--text); /* Fondo Oscuro */
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav { justify-content: center; padding: 10px; }
+            .hero h1 { font-size: 3rem; }
+            section { padding: 70px 5%; }
         }
     </style>
 </head>
@@ -190,66 +246,67 @@
 
     <section class="hero">
         <h1>Mariscos El Reformeño</h1>
-        <p>Tradición y frescura en cada concha. Disfruta de los mejores moluscos preparados y ceviches en el corazón de Culiacán.</p>
-        <a href="https://wa.me/526674982945?text=Hola%20El%20Reformeño,%20me%20gustaría%20hacer%20un%20pedido" class="btn">ORDENAR POR WHATSAPP</a>
+        <p>¡Una fiesta de sabor en cada concha! Disfruta la frescura carnavalesca de nuestros moluscos preparados y ceviches en Culiacán.</p>
+        <a href="https://wa.me/526674982945?text=Hola%20El%20Reformeño,%20¡quiero%20hacer%20un%20pedido%20carnavalesco!" class="btn">ORDENAR YA</a>
     </section>
 
     <section id="menu">
-        <h2>Nuestro Especialidades</h2>
+        <h2>Nuestras Especialidades</h2>
         <div class="productos-grid">
             <div class="card">
                 <h3>🐚 Moluscos</h3>
-                <p>Pata de Mula, Almeja Negra y Ostiones frescos en su concha.</p>
+                <p>Pata de Mula, Almeja Negra y Ostiones frescos en su concha. ¡Directo del mar!</p>
             </div>
             <div class="card">
                 <h3>🥣 Ceviches</h3>
-                <p>Preparados de pata de mula o mixtos con el toque de la casa.</p>
+                <p>Preparados de pata de mula o mixtos con el toque alegre de la casa.</p>
             </div>
             <div class="card">
                 <h3>🦐 Camarones</h3>
-                <p>Camarones cocidos de calidad premium, listos para pelar.</p>
+                <p>Camarones cocidos premium, firmes y frescos, listos para pelar.</p>
             </div>
         </div>
     </section>
 
     <section id="galeria">
-        <h2>Galería El Reformeño</h2>
+        <h2>Galería del Sabor</h2>
         <div class="galeria-container">
             <div class="foto-item">
-                <img src="img/ostiones.jpg" alt="Ostiones">
+                <img src="img/ostiones.jpg" alt="Ostiones Frescos El Reformeño">
                 <div class="foto-info">Ostiones en su concha</div>
             </div>
             <div class="foto-item">
-                <img src="img/ceviche en concha.jpg" alt="Ceviche">
+                <img src="img/ceviche en concha.jpg" alt="Ceviche Preparado El Reformeño">
                 <div class="foto-info">Ceviche en Concha</div>
             </div>
             <div class="foto-item">
-                <img src="img/mas almejas.jpg" alt="Almejas">
+                <img src="img/mas almejas.jpg" alt="Almejas Preparadas El Reformeño">
                 <div class="foto-info">Almejas Preparadas</div>
             </div>
             <div class="foto-item">
-                <img src="img/ceviche de patas de mula.jpg" alt="Ceviche de patas">
-                <div class="foto-info">Ceviche de Patas de Mula</div>
+                <img src="img/ceviche de patas de mula.jpg" alt="Ceviche de Patas El Reformeño">
+                <div class="foto-info">Ceviche de Patas</div>
             </div>
             <div class="foto-item">
-                <img src="img/Charola de almejas y ostiones.jpg" alt="Charola">
+                <img src="img/Charola de almejas y ostiones.jpg" alt="Charola de Mariscos El Reformeño">
                 <div class="foto-info">Charola de la Casa</div>
             </div>
             <div class="foto-item">
-                <img src="img/Almejas en su concha.jpg" alt="Almejas negras">
-                <div class="foto-info">Almejas en su concha</div>
+                <img src="img/Almejas en su concha.jpg" alt="Almejas Negras El Reformeño">
+                <div class="foto-info">Almejas en Concha</div>
             </div>
         </div>
     </section>
 
     <section class="contacto">
-        <h2>¡Haz tu pedido!</h2>
+        <h2>¡Pide tu Fiesta del Mar!</h2>
         <p>📍 Avenida Amapa 1234, Culiacán, Sinaloa.</p>
         <a href="https://wa.me/526674982945" class="whatsapp-link">📲 WhatsApp: 667 498 2945</a>
     </section>
 
     <footer>
-        <p>&copy; 2026 Mariscos El Reformeño - Culiacán, Sinaloa.</p>
+        <p>&copy; 2026 Mariscos El Reformeño - ¡El sabor que se celebra!</p>
+        <p style="font-size: 0.8rem; margin-top: 10px;">Culiacán, Sinaloa.</p>
     </footer>
 
 </body>
